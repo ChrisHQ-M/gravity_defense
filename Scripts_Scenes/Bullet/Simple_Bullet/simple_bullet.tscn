@@ -1,0 +1,84 @@
+[gd_scene load_steps=13 format=3 uid="uid://bpvdmvebuuy41"]
+
+[ext_resource type="Texture2D" uid="uid://dbtfidkbic8j6" path="res://Game_Sprites/Bullets/Simple_Bullet/simple_bullet.png" id="1_uluby"]
+[ext_resource type="Script" uid="uid://dkiqkpsw32ijv" path="res://Scripts_Scenes/Bullet/Simple_Bullet/simple_bullet.gd" id="2_pne4v"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pne4v"]
+atlas = ExtResource("1_uluby")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jn0ui"]
+atlas = ExtResource("1_uluby")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ey4m4"]
+atlas = ExtResource("1_uluby")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_85b8n"]
+atlas = ExtResource("1_uluby")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yub3"]
+atlas = ExtResource("1_uluby")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n4q65"]
+atlas = ExtResource("1_uluby")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2icsw"]
+atlas = ExtResource("1_uluby")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jy3su"]
+atlas = ExtResource("1_uluby")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pynd5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pne4v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jn0ui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ey4m4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_85b8n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yub3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n4q65")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2icsw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jy3su")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uluby"]
+radius = 11.045361
+
+[node name="simple_bullet" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_pynd5")
+frame_progress = 0.7560849
+script = ExtResource("2_pne4v")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+shape = SubResource("CircleShape2D_uluby")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

@@ -1,0 +1,46 @@
+[gd_scene load_steps=8 format=3 uid="uid://ch8pjmnr43stu"]
+
+[ext_resource type="Texture2D" uid="uid://ws5wvhgoxxk2" path="res://Game_Sprites/Jewel/jewel.png" id="1_nao0s"]
+[ext_resource type="Script" uid="uid://bdjpkt72dq7qg" path="res://Scripts_Scenes/Jewel/jewel.gd" id="2_1cyp7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cyp7"]
+atlas = ExtResource("1_nao0s")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rujn"]
+atlas = ExtResource("1_nao0s")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p61ep"]
+atlas = ExtResource("1_nao0s")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ap37"]
+atlas = ExtResource("1_nao0s")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rgr22"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cyp7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rujn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p61ep")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ap37")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="Jewel" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_rgr22")
+frame_progress = 0.2689069
+script = ExtResource("2_1cyp7")

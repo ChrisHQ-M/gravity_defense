@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://45v6jy8mgwie"]
+[gd_scene load_steps=19 format=3 uid="uid://45v6jy8mgwie"]
 
 [ext_resource type="Script" uid="uid://bs8cp56hv8dju" path="res://Scripts_Scenes/Main_Menu/main_menu.gd" id="1_e02yy"]
 [ext_resource type="Texture2D" uid="uid://ixt74hrvdj7o" path="res://Game_Sprites/BlackHole/blackhole.png" id="1_gneup"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://lfx33g1u4ctn" path="res://Game_Sprites/Buttons/Settings_btn/settings_btn_normal.png" id="6_vn5ic"]
 [ext_resource type="Texture2D" uid="uid://c0ly1srj61pak" path="res://Game_Sprites/Buttons/Settings_btn/settings_btn_pressed.png" id="7_vkawt"]
 [ext_resource type="Texture2D" uid="uid://q6myxwvnqbni" path="res://Game_Sprites/Buttons/Settings_btn/settings_btn_hover.png" id="8_05ki3"]
+[ext_resource type="PackedScene" uid="uid://ctnmgx10nrboi" path="res://Scripts_Scenes/Parallax/parallax_stars.tscn" id="10_hbwww"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k21xc"]
 atlas = ExtResource("1_gneup")
@@ -77,15 +78,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e02yy")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
 [node name="Visuals" type="Node2D" parent="."]
 
 [node name="blackhole_sprite" type="AnimatedSprite2D" parent="Visuals"]
@@ -95,6 +87,7 @@ sprite_frames = SubResource("SpriteFrames_e02yy")
 frame_progress = 0.10574569
 
 [node name="title_game" type="Label" parent="Visuals"]
+z_index = 10
 offset_left = 93.0
 offset_top = 24.0
 offset_right = 232.0
@@ -133,3 +126,9 @@ layout_mode = 2
 texture_normal = ExtResource("6_vn5ic")
 texture_pressed = ExtResource("7_vkawt")
 texture_hover = ExtResource("8_05ki3")
+
+[node name="Parallax_Stars" parent="Visuals" instance=ExtResource("10_hbwww")]
+z_index = 5
+scale = Vector2(1.0000001, 1.0000001)
+
+[connection signal="pressed" from="Visuals/VBoxBtnContainer/play_btn" to="." method="_on_play_btn_pressed"]

@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=3 uid="uid://cnxbfnc6nsbm4"]
+
+[ext_resource type="Texture2D" uid="uid://b5ti315p7jhoa" path="res://Game_Sprites/Jewel/area_jewels/area_jewels.png" id="1_vgiab"]
+[ext_resource type="Script" uid="uid://b1fyrbx2qsk5w" path="res://Scripts_Scenes/Jewel/area_jewels.gd" id="2_m5qdl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5qdl"]
+atlas = ExtResource("1_vgiab")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fbg35"]
+atlas = ExtResource("1_vgiab")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5mtxy"]
+atlas = ExtResource("1_vgiab")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwi2k"]
+atlas = ExtResource("1_vgiab")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liv25"]
+atlas = ExtResource("1_vgiab")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vr6db"]
+atlas = ExtResource("1_vgiab")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q82yu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5qdl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fbg35")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5mtxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mwi2k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liv25")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vr6db")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5qdl")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vgiab"]
+radius = 23.345236
+
+[node name="Area_Jewels" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_q82yu")
+script = ExtResource("2_m5qdl")
+
+[node name="Area_Grab" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Grab"]
+shape = SubResource("CircleShape2D_vgiab")
+
+[node name="TimerAnimation" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="TimerAnimation" to="." method="_on_timer_animation_timeout"]

@@ -4,6 +4,9 @@ extends Node
 
 @onready var music : AudioStreamPlayer = $AudioMusic
 
+var click_sfx_enter : AudioStream = preload("res://Sounds/SFX/Click_SFX/click_sfx_enter.ogg")
+var click_sfx_return : AudioStream = preload("res://Sounds/SFX/Click_SFX/click_sfx_return.ogg")
+
 # Plays one music in the node's stream "AudioMusic" with a loop option and returns the node.
 func play_music(stream : AudioStream, loop : bool) -> AudioStreamPlayer:
 	if music.stream == stream:
@@ -31,3 +34,9 @@ func play_sfx(stream : AudioStream, vol_db : float, pitch_scale : float) -> Audi
 		new_sfx.play()
 	
 	return new_sfx
+
+func play_click_enter_sfx(vol_db : float, pitch_scale : float) -> AudioStreamPlayer:
+	return play_sfx(click_sfx_enter, vol_db, pitch_scale)
+	
+func play_click_return_sfx(vol_db : float, pitch_scale : float) -> AudioStreamPlayer:
+	return play_sfx(click_sfx_return, vol_db, pitch_scale)

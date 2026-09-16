@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ktdv6fmk8fl0"]
+
+[ext_resource type="PackedScene" uid="uid://ctnmgx10nrboi" path="res://Scripts_Scenes/Parallax/parallax_stars.tscn" id="1_pfdc7"]
+
+[node name="level_scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Parallax_Stars" parent="." instance=ExtResource("1_pfdc7")]
