@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://ktdv6fmk8fl0"]
+[gd_scene load_steps=10 format=3 uid="uid://ktdv6fmk8fl0"]
 
 [ext_resource type="PackedScene" uid="uid://ctnmgx10nrboi" path="res://Scripts_Scenes/Parallax/parallax_stars.tscn" id="1_pfdc7"]
+[ext_resource type="PackedScene" uid="uid://cnxbfnc6nsbm4" path="res://Scripts_Scenes/Jewel/area_jewels.tscn" id="2_qgdac"]
+[ext_resource type="PackedScene" uid="uid://kiwiu2pspo5k" path="res://Scripts_Scenes/BlackHole/black_hole.tscn" id="3_peqeh"]
+[ext_resource type="Texture2D" uid="uid://cg6m1hur7q5fw" path="res://Game_Sprites/Buttons/Turret_btn/simple_turret_btn/simple_turret_btn.png" id="4_fpesk"]
+[ext_resource type="Texture2D" uid="uid://jw4xjx7iypnx" path="res://Game_Sprites/Buttons/Turret_btn/simple_turret_btn/simple_turret_btn_hover.png" id="5_03vs7"]
+[ext_resource type="Texture2D" uid="uid://c10hsdd3tp6hs" path="res://Game_Sprites/Buttons/Turret_btn/simple_turret_btn/simple_turret_btn_pressed.png" id="6_pl6y6"]
+[ext_resource type="PackedScene" uid="uid://ck8gxftm2hdwt" path="res://Scripts_Scenes/Coin/coin_sprite.tscn" id="7_03vs7"]
+[ext_resource type="FontFile" uid="uid://crutk5ngs86jh" path="res://Font_text/Jersey_10/Jersey10-Regular.ttf" id="7_srmrb"]
+[ext_resource type="Texture2D" uid="uid://loiad77chly" path="res://Game_Sprites/Coin/coin.png" id="8_0bwyw"]
 
 [node name="level_scene" type="Control"]
 layout_mode = 3
@@ -11,3 +19,48 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Parallax_Stars" parent="." instance=ExtResource("1_pfdc7")]
+
+[node name="Area_Jewels" parent="." instance=ExtResource("2_qgdac")]
+z_index = 20
+position = Vector2(158.00003, 168.99998)
+scale = Vector2(0.5, 0.5)
+
+[node name="black_hole" parent="." instance=ExtResource("3_peqeh")]
+position = Vector2(158.00005, 168)
+scale = Vector2(0.640625, 0.609375)
+
+[node name="Turret_btns" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.9999695
+offset_right = 21.00003
+offset_bottom = 40.0
+grow_horizontal = 0
+scale = Vector2(0.34, 0.34)
+
+[node name="simple_turret_btn" type="TextureButton" parent="Turret_btns"]
+texture_filter = 1
+layout_mode = 2
+texture_normal = ExtResource("4_fpesk")
+texture_pressed = ExtResource("5_03vs7")
+texture_hover = ExtResource("6_pl6y6")
+
+[node name="simple_turret_price" type="Label" parent="Turret_btns/simple_turret_btn"]
+layout_mode = 0
+offset_left = 2.941162
+offset_top = 32.352936
+offset_right = 15.941162
+offset_bottom = 50.352936
+theme_override_fonts/font = ExtResource("7_srmrb")
+text = "30"
+
+[node name="coin_sprite" type="Sprite2D" parent="Turret_btns/simple_turret_btn/simple_turret_price"]
+position = Vector2(19.941406, 9.4705925)
+scale = Vector2(0.2242586, 0.22426482)
+texture = ExtResource("8_0bwyw")
+
+[node name="coin_sprite" parent="." instance=ExtResource("7_03vs7")]
+position = Vector2(5.9999995, 5.9999995)
+scale = Vector2(0.35, 0.35)

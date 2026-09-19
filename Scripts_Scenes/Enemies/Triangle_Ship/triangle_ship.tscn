@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://c5av7mptntgai"]
+
+[ext_resource type="Script" uid="uid://dt86j36n8doxb" path="res://Scripts_Scenes/Enemies/Triangle_Ship/triangle_ship.gd" id="1_c44ar"]
+[ext_resource type="Texture2D" uid="uid://7yeoa1q0frka" path="res://Game_Sprites/Enemy/triangle_ship/triangle_ship_hit.png" id="2_bvjt7"]
+[ext_resource type="Texture2D" uid="uid://dl1h7gxj73ts6" path="res://Game_Sprites/Enemy/triangle_ship/triangle_ship_idle.png" id="3_pjbmw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vyw3k"]
+atlas = ExtResource("2_bvjt7")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om581"]
+atlas = ExtResource("2_bvjt7")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yvrp6"]
+atlas = ExtResource("3_pjbmw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1lcu5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyw3k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om581")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vyw3k")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yvrp6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c44ar"]
+size = Vector2(30, 30)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bvjt7"]
+size = Vector2(40.000008, 40.000008)
+
+[node name="triangle_ship" type="CharacterBody2D"]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_c44ar")
+
+[node name="sprite" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1lcu5")
+animation = &"hit"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.6391274e-06, 1.6391274e-06)
+scale = Vector2(0.9999998, 0.9999998)
+shape = SubResource("RectangleShape2D_c44ar")
+
+[node name="hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(-1.1920927e-06, -1.1920927e-06)
+scale = Vector2(0.99999964, 0.99999964)
+shape = SubResource("RectangleShape2D_bvjt7")
+
+[node name="TimerHit" type="Timer" parent="."]
+wait_time = 0.12
+one_shot = true
+
+[connection signal="timeout" from="TimerHit" to="." method="_on_timer_hit_timeout"]

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 SoundManager="*res://Scripts_Scenes/Autoload/SoundManager/sound_manager.tscn"
 TransitionEffects="*res://Scripts_Scenes/Autoload/TransitionEffects/transition_effects.tscn"
+GlobalSignal="*res://Scripts_Scenes/Autoload/GlobalSignal/global_signal.gd"
 
 [display]
 

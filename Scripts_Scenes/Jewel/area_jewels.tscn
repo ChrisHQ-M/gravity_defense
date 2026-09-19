@@ -1,7 +1,8 @@
-[gd_scene load_steps=11 format=3 uid="uid://cnxbfnc6nsbm4"]
+[gd_scene load_steps=12 format=3 uid="uid://cnxbfnc6nsbm4"]
 
 [ext_resource type="Texture2D" uid="uid://b5ti315p7jhoa" path="res://Game_Sprites/Jewel/area_jewels/area_jewels.png" id="1_vgiab"]
 [ext_resource type="Script" uid="uid://b1fyrbx2qsk5w" path="res://Scripts_Scenes/Jewel/area_jewels.gd" id="2_m5qdl"]
+[ext_resource type="PackedScene" uid="uid://ch8pjmnr43stu" path="res://Scripts_Scenes/Jewel/jewel.tscn" id="3_fbg35"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m5qdl"]
 atlas = ExtResource("1_vgiab")
@@ -71,5 +72,22 @@ shape = SubResource("CircleShape2D_vgiab")
 
 [node name="TimerAnimation" type="Timer" parent="."]
 wait_time = 3.0
+
+[node name="Jewels" type="Node2D" parent="."]
+
+[node name="Jewel" parent="Jewels" instance=ExtResource("3_fbg35")]
+position = Vector2(-13, -13)
+
+[node name="Jewel2" parent="Jewels" instance=ExtResource("3_fbg35")]
+position = Vector2(4, -15)
+
+[node name="Jewel3" parent="Jewels" instance=ExtResource("3_fbg35")]
+position = Vector2(17, 2)
+
+[node name="Jewel4" parent="Jewels" instance=ExtResource("3_fbg35")]
+position = Vector2(0, 10)
+
+[node name="Jewel5" parent="Jewels" instance=ExtResource("3_fbg35")]
+position = Vector2(-17, 4)
 
 [connection signal="timeout" from="TimerAnimation" to="." method="_on_timer_animation_timeout"]

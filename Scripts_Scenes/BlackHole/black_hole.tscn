@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://kiwiu2pspo5k"]
+
+[ext_resource type="Texture2D" uid="uid://ixt74hrvdj7o" path="res://Game_Sprites/BlackHole/blackhole.png" id="1_e2gu8"]
+[ext_resource type="Script" uid="uid://ba8ys8juu60y1" path="res://Scripts_Scenes/BlackHole/black_hole.gd" id="2_6r7p3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r7p3"]
+atlas = ExtResource("1_e2gu8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejw8i"]
+atlas = ExtResource("1_e2gu8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ifdu"]
+atlas = ExtResource("1_e2gu8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xmx4i"]
+atlas = ExtResource("1_e2gu8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73ehd"]
+atlas = ExtResource("1_e2gu8")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcvmf"]
+atlas = ExtResource("1_e2gu8")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nsmeq"]
+atlas = ExtResource("1_e2gu8")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_61fal"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r7p3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejw8i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ifdu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xmx4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73ehd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcvmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nsmeq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[node name="black_hole" type="AnimatedSprite2D"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_61fal")
+frame_progress = 0.55053604
+script = ExtResource("2_6r7p3")

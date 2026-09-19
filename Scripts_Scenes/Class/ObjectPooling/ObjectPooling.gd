@@ -15,7 +15,7 @@ func _ready() -> void:
 
 func add_to_pool(obj : Node2D) -> void:
 	if !object_pool.has(obj):
-		obj.reset()
+		obj.disable()
 		object_pool.append(obj)
 	
 func pull_from_pool() -> Node2D:

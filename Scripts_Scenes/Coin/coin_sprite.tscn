@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ck8gxftm2hdwt"]
+
+[ext_resource type="Texture2D" uid="uid://loiad77chly" path="res://Game_Sprites/Coin/coin.png" id="1_61vod"]
+[ext_resource type="FontFile" uid="uid://crutk5ngs86jh" path="res://Font_text/Jersey_10/Jersey10-Regular.ttf" id="2_csmt8"]
+[ext_resource type="Script" uid="uid://cim5v57jdun88" path="res://Scripts_Scenes/Coin/coin_sprite.gd" id="2_lfjp6"]
+
+[node name="coin_sprite" type="Sprite2D"]
+texture_filter = 1
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_61vod")
+script = ExtResource("2_lfjp6")
+
+[node name="nb_coins" type="Label" parent="."]
+texture_filter = 1
+offset_left = 24.999992
+offset_top = -14.999992
+offset_right = 64.99999
+offset_bottom = 21.000008
+theme_override_fonts/font = ExtResource("2_csmt8")
+theme_override_font_sizes/font_size = 32
+text = "100"

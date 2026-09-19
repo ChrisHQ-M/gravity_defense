@@ -6,10 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://bj7a7t24b3ytl" path="res://Game_Sprites/Buttons/Play_btn/play_btn_normal.png" id="3_f3ev7"]
 [ext_resource type="Texture2D" uid="uid://lmfuhgwi4kex" path="res://Game_Sprites/Buttons/Play_btn/play_btn_pressed.png" id="4_e02yy"]
 [ext_resource type="Texture2D" uid="uid://bmxsw3tym5vjr" path="res://Game_Sprites/Buttons/Play_btn/play_btn_hover.png" id="5_hbwww"]
-[ext_resource type="Texture2D" uid="uid://lfx33g1u4ctn" path="res://Game_Sprites/Buttons/Settings_btn/settings_btn_normal.png" id="6_vn5ic"]
-[ext_resource type="Texture2D" uid="uid://c0ly1srj61pak" path="res://Game_Sprites/Buttons/Settings_btn/settings_btn_pressed.png" id="7_vkawt"]
-[ext_resource type="Texture2D" uid="uid://q6myxwvnqbni" path="res://Game_Sprites/Buttons/Settings_btn/settings_btn_hover.png" id="8_05ki3"]
+[ext_resource type="Texture2D" uid="uid://2f50rq0lg5fh" path="res://Game_Sprites/Buttons/Sound_btn/sound_btn_active.png" id="8_hbwww"]
+[ext_resource type="Texture2D" uid="uid://dcxd8rddcx212" path="res://Game_Sprites/Buttons/Sound_btn/sound_btn_pressed.png" id="9_vn5ic"]
 [ext_resource type="PackedScene" uid="uid://ctnmgx10nrboi" path="res://Scripts_Scenes/Parallax/parallax_stars.tscn" id="10_hbwww"]
+[ext_resource type="Texture2D" uid="uid://dw0e6011yndpd" path="res://Game_Sprites/Buttons/Sound_btn/sound_btn_hover.png" id="10_vkawt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k21xc"]
 atlas = ExtResource("1_gneup")
@@ -88,47 +88,42 @@ frame_progress = 0.10574569
 
 [node name="title_game" type="Label" parent="Visuals"]
 z_index = 10
-offset_left = 93.0
+offset_left = 78.0
 offset_top = 24.0
-offset_right = 232.0
-offset_bottom = 52.0
+offset_right = 246.0
+offset_bottom = 58.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_constants/shadow_outline_size = 3
 theme_override_fonts/font = ExtResource("2_k21xc")
-theme_override_font_sizes/font_size = 25
+theme_override_font_sizes/font_size = 30
 text = "Gravity Defense"
-
-[node name="VBoxBtnContainer" type="VBoxContainer" parent="Visuals"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 146.99998
-offset_top = 64.000015
-offset_right = 162.99998
-offset_bottom = 106.00002
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.7, 1.7)
-theme_override_constants/separation = 10
-
-[node name="play_btn" type="TextureButton" parent="Visuals/VBoxBtnContainer"]
-layout_mode = 2
-texture_normal = ExtResource("3_f3ev7")
-texture_pressed = ExtResource("4_e02yy")
-texture_hover = ExtResource("5_hbwww")
-
-[node name="settings_btn" type="TextureButton" parent="Visuals/VBoxBtnContainer"]
-layout_mode = 2
-texture_normal = ExtResource("6_vn5ic")
-texture_pressed = ExtResource("7_vkawt")
-texture_hover = ExtResource("8_05ki3")
 
 [node name="Parallax_Stars" parent="Visuals" instance=ExtResource("10_hbwww")]
 z_index = 5
 scale = Vector2(1.0000001, 1.0000001)
 
-[connection signal="pressed" from="Visuals/VBoxBtnContainer/play_btn" to="." method="_on_play_btn_pressed"]
+[node name="Buttons" type="Node2D" parent="Visuals"]
+
+[node name="play_btn" type="TextureButton" parent="Visuals/Buttons"]
+offset_left = 143.99998
+offset_top = 75.000015
+offset_right = 159.99998
+offset_bottom = 91.000015
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_f3ev7")
+texture_pressed = ExtResource("4_e02yy")
+texture_hover = ExtResource("5_hbwww")
+
+[node name="sound_btn" type="TextureButton" parent="Visuals/Buttons"]
+offset_left = 304.0
+offset_top = 164.0
+offset_right = 320.0
+offset_bottom = 180.0
+texture_normal = ExtResource("8_hbwww")
+texture_pressed = ExtResource("9_vn5ic")
+texture_hover = ExtResource("10_vkawt")
+
+[connection signal="pressed" from="Visuals/Buttons/play_btn" to="." method="_on_play_btn_pressed"]
+[connection signal="pressed" from="Visuals/Buttons/sound_btn" to="." method="_on_sound_btn_pressed"]
